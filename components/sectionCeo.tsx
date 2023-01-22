@@ -47,11 +47,11 @@ function SectionCeo() {
       });
 
       ScrollTrigger.create({
-        trigger: ceoContainer,
+        trigger: mainRef.current,
         toggleActions: 'restart none restart none',
         animation: tlRef.current,
-        start: '30% bottom',
-        end: 'bottom bottom',
+        start: 'top top',
+        // markers: true,
       });
     }, mainRef);
 

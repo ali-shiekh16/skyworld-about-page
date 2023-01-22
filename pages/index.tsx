@@ -57,15 +57,6 @@ export default function Home() {
 
       gsap.from(`.${styles.section_gallery__img_hands}`, {
         duration: 0.5,
-        scrollTrigger: {
-          trigger: `.${styles.section_gallery__img_hands}`,
-          scrub: 1,
-        },
-        opacity: 0.5,
-      });
-
-      gsap.from(`.${styles.section_gallery__img_hands}`, {
-        duration: 0.5,
         delay: 0.8,
         scrollTrigger: {
           trigger: `.${styles.section_gallery__img_hands}`,
@@ -73,16 +64,6 @@ export default function Home() {
         },
         scale: 3,
         y: 100,
-      });
-
-      gsap.to(`.${styles.section_gallery}`, {
-        scrollTrigger: {
-          trigger: `.${styles.section_gallery}`,
-          scrub: true,
-          markers: true,
-          start: 'top top',
-        },
-        opacity: 0.0,
       });
     }, mainRef);
 
