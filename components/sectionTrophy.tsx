@@ -59,13 +59,13 @@ function SectionTrophy() {
         x: -50,
       });
 
-      gsap.from(mainRef.current, {
-        duration: 0.5,
+      gsap.to(mainRef.current, {
         scrollTrigger: {
           trigger: mainRef.current,
-          scrub: 1,
+          scrub: true,
+          start: '10% top',
         },
-        opacity: 0.3,
+        opacity: 0,
       });
 
       ScrollTrigger.create({

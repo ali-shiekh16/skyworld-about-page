@@ -25,13 +25,14 @@ function SectionCities() {
         })
         .from(content, { opacity: 0, y: 30, duration: 1.5 });
 
-      gsap.from(mainRef.current, {
-        duration: 0.5,
+      gsap.to(mainRef.current, {
+        opacity: 0,
         scrollTrigger: {
           trigger: mainRef.current,
           scrub: 1,
+          start: '20% top',
+          end: '90% top',
         },
-        opacity: 0,
       });
 
       ScrollTrigger.create({

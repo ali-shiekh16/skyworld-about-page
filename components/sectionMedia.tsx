@@ -48,15 +48,6 @@ function SectionMedia() {
           opacity: 0,
         });
 
-      gsap.from(mainRef.current, {
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: mainRef.current,
-          scrub: 1,
-        },
-        opacity: 0,
-      });
-
       ScrollTrigger.create({
         trigger: mainRef.current,
         toggleActions: 'restart none restart none',

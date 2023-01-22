@@ -29,18 +29,19 @@ function SectionCeo() {
         .fromTo(
           ceoHeading,
           { fontSize: '18rem' },
-          { fontSize: '7rem', delay: 1.5, duration: 0.8 }
+          { fontSize: '7rem', delay: 0.2, duration: 0.8 }
         )
         .from(ceoContainer, { background: 'none' })
         .to(ceoTextName, { opacity: 1, y: 0, duration: 0.7 })
         .to(ceoTextRole, { opacity: 1, y: 0, duration: 0.7 }, '<')
         .to(ceoButton, { opacity: 1, duration: 0.7 });
 
-      gsap.from(mainRef.current, {
-        duration: 0.5,
+      gsap.to(mainRef.current, {
         scrollTrigger: {
           trigger: mainRef.current,
-          scrub: 1,
+          scrub: true,
+          start: '2% top',
+          end: '70% top',
         },
         opacity: 0,
       });

@@ -345,6 +345,8 @@ $screen-xl-min: 1200px;
     grid-template-rows: repeat(5, minmax(0, 1fr));
     grid-template-rows: repeat(5, minmax(0, 1fr));
     gap: 1rem;
+
+    display: none;
   }
 
   &__img_1 {
