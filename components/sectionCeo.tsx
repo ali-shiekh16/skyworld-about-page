@@ -23,7 +23,7 @@ function SectionCeo() {
     const context = gsap.context(() => {
       tlRef.current = gsap
         .timeline()
-        .set(ceoTextName, { opacity: 0, y: 100 })
+        .set(ceoTextName, { opacity: 0, y: 100, delay: 0.5 })
         .set(ceoTextRole, { opacity: 0, y: 100 })
         .set(ceoButton, { opacity: 0 })
         .fromTo(
@@ -50,8 +50,7 @@ function SectionCeo() {
         trigger: mainRef.current,
         toggleActions: 'restart none restart none',
         animation: tlRef.current,
-        start: 'top top',
-        // markers: true,
+        start: '-500 top',
       });
     }, mainRef);
 
