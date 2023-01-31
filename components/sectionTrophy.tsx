@@ -10,7 +10,8 @@ function SectionTrophy() {
   const win = global || {};
   const breakpoint = 768;
   const [width, setWidth] = useState(win?.innerWidth);
-  const [videoDuration, setVideoDuration] = useState(2.5);
+  const [videoDuration, setVideoDuration] = useState(2.0);
+  const [isPlayed, setIsPlayed] = useState(false);
 
   useEffect(() => {
     const handleResizeWindow = () => {
@@ -29,7 +30,6 @@ function SectionTrophy() {
   const mainRef = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const tlRef = useRef<gsap.core.Timeline>();
-
   const heading = `.${styles.section_trophy__heading}`;
   const button = `.${styles.section_trophy__button}`;
 
@@ -42,7 +42,10 @@ function SectionTrophy() {
         tlRef.current.to(videoRef.current, {
           duration: videoDuration,
           onUpdate() {
-            videoRef.current && videoRef.current.play();
+            if (!isPlayed) {
+              videoRef.current && videoRef.current.play();
+              setIsPlayed(true);
+            }
           },
         });
 
@@ -76,7 +79,7 @@ function SectionTrophy() {
     }, mainRef);
 
     return () => context.revert();
-  }, [videoDuration]);
+  }, [videoDuration, isPlayed]);
 
   return (
     <section

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from '../styles/About.module.scss';
 import Button from './button';
 
@@ -8,8 +8,11 @@ function SectionCities() {
   const mainRef = useRef(null);
   const tlRef = useRef<gsap.core.Timeline>();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlayed, setIsPlayed] = useState(false);
 
   useLayoutEffect(() => {
+    console.log(isPlayed);
+
     gsap.registerPlugin(ScrollTrigger);
 
     const context = gsap.context(() => {
@@ -18,9 +21,12 @@ function SectionCities() {
       tlRef.current = gsap
         .timeline()
         .to(videoRef.current, {
-          duration: 4,
+          duration: 2,
           onUpdate() {
-            videoRef.current && videoRef.current.play();
+            if (!isPlayed) {
+              videoRef.current && videoRef.current.play();
+              setIsPlayed(true);
+            }
           },
         })
         .from(content, { opacity: 0, y: 30, duration: 1.5 });
@@ -43,7 +49,7 @@ function SectionCities() {
     }, mainRef);
 
     return () => context.revert();
-  }, []);
+  }, [isPlayed]);
 
   return (
     <section
